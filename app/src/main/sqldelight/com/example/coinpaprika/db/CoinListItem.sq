@@ -1,0 +1,21 @@
+CREATE TABLE CoinListItem (
+    id TEXT PRIMARY KEY  NOT NULL,
+    name TEXT,
+    symbol TEXT,
+    rank INTEGER,
+    isNew INTEGER AS Boolean DEFAULT 0,
+    isActive INTEGER AS Boolean DEFAULT 0,
+    type TEXT
+);
+
+
+insert:
+INSERT OR IGNORE INTO CoinListItem VALUES ?;
+
+selectAll:
+SELECT * FROM CoinListItem;
+
+search:
+SELECT * FROM CoinListItem WHERE id LIKE   ('%' || :name || '%');
+
+
